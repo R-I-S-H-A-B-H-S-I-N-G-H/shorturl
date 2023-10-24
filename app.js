@@ -14,7 +14,7 @@ app.use(
 );
 
 // Routes
-app.use("/url", urlRoutes);
+app.use("", urlRoutes);
 
 // handle 404 routes
 app.use("*", (req, res, next) => {});
