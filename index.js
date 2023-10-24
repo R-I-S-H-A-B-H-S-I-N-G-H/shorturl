@@ -1,6 +1,7 @@
 const dotenv = require("dotenv");
 const app = require("./app");
 const mongoose = require("mongoose");
+const { ping } = require("./jobs/keepServiceAwake");
 
 dotenv.config({
 	path: "./.env",
@@ -19,6 +20,8 @@ mongoose
 
 // start server
 const port = process.env.PORT;
+
 app.listen(port, () => {
+	ping();
 	console.log(`Application live at port ${port}`);
 });
